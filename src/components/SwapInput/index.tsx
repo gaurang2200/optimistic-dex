@@ -2,7 +2,7 @@ import { Box, FormControl, Select, MenuItem } from "@mui/material";
 import React from "react";
 import PropTypes, { InferProps } from 'prop-types';
 import { coinData } from "../../utils/coinData";
-import { makeStyles, withStyles, styled } from '@mui/styles'
+import { makeStyles } from '@mui/styles'
 
 const styles = {
     inputBoxStyle: {
@@ -24,17 +24,7 @@ const styles = {
         display: 'flex',
         alignItems: 'center',
         borderRadius: '1em 0 0 1em'
-    },
-    coinInputStyle: {
-        backgroundColor: 'transparent',
-        border: 0,
-        fontSize: '1.3em',
-        textAlign: 'right',
-        padding: '0 1em 0 1em',
-        color:'white',
-        width: 'auto',
-        fontWeight: 'bold'
-    },
+    }
 }
 
 const useStyles = makeStyles({
@@ -50,10 +40,17 @@ const useStyles = makeStyles({
         },
     },
     icon: {
-        fill: 'white',
+        fill: 'white !important',
     },
-    root: {
-        color: 'white',
+    coinInputStyle: {
+        backgroundColor: 'transparent',
+        border: 0,
+        fontSize: '1.3em',
+        textAlign: 'right',
+        padding: '0 1em 0 1em',
+        color:'white',
+        width: 'auto',
+        fontWeight: 'bold'
     },
 })
 
@@ -72,8 +69,7 @@ function SwapInput({ coin, handleCoin, value, handleValue }: InferProps<typeof S
                     className={classes.select}
                     inputProps={{
                         classes: {
-                            icon: classes.icon,
-                            root: classes.root
+                            icon: classes.icon
                         }
                     }}
                 >
@@ -86,8 +82,8 @@ function SwapInput({ coin, handleCoin, value, handleValue }: InferProps<typeof S
                         ))
                     }
                 </Select>
-                <input placeholder="0" type="number" value={value} 
-                onChange={handleValue} style={styles.coinInputStyle} />
+                <input className={classes.coinInputStyle} placeholder="0" type="number" value={value} 
+                onChange={handleValue}  />
             </FormControl>
         </Box>
     );

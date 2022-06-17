@@ -2,17 +2,9 @@ import { Box, Button, ButtonGroup, IconButton, List, ListItemButton, Typography 
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import CircleIcon from '@mui/icons-material/Circle';
 import React from "react";
+import { makeStyles } from "@mui/styles";
 
-const classes = {
-    root: {
-        position:'absolute', 
-        width:'100%', 
-        display:'grid', 
-        gridTemplateColumns:'3fr 2fr', 
-        color:'white', 
-        backgroundColor:'transparent', 
-        padding:'0.5em 0 0.5em 0'
-    },
+const styles = {
     menuItemsStyle: {
         display:'flex', 
         alignItems:'center'
@@ -22,11 +14,25 @@ const classes = {
     }
 };
 
+const useStyles = makeStyles({
+    root: {
+        position: 'fixed', 
+        width:'100%', 
+        display:'grid', 
+        gridTemplateColumns:'3fr 2fr', 
+        color:'white', 
+        backgroundColor:'transparent', 
+        padding:'0.5em 0 0.5em 0'
+    }
+})
+
 function Navbar() {
+    const classes = useStyles();
+
     return (
-        <Box style={classes.root}>
-            <Box style={classes.menuItemsStyle}>
-                <Typography variant="h5" style={classes.logoStyle}>Optimistic DEX</Typography>
+        <Box className={classes.root}>
+            <Box style={styles.menuItemsStyle}>
+                <Typography variant="h5" style={styles.logoStyle}>Optimistic DEX</Typography>
                 <List disablePadding sx={{fontWeight:'bold', display:'flex', flexDirection:'row'}}>
                     <ListItemButton disableRipple href="#swap" sx={{px:4, '&:hover': { color:'#166AC6' }}}>
                         Swap

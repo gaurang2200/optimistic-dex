@@ -1,9 +1,5 @@
-import React, { useState } from "react";
-import { Box, Button, Container, IconButton, Typography } from "@mui/material";
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import ArrowCircleDownRoundedIcon from '@mui/icons-material/ArrowCircleDownRounded';
-import homeLogic from "./homeLogic";
-import SwapInput from "../../components/SwapInput";
+import React from "react";
+import { Box, Container } from "@mui/material";
 import Swap from "./Swap";
 
 const classes = {
@@ -61,9 +57,6 @@ const classes = {
 
 
 function Homepage(){
-    const { fromCoin, handleFromCoin, fromValue, handleFromValue,
-    toCoin, handleToCoin, toValue, handleToValue } = homeLogic();
-
     return (
         <Container style={classes.root}>
             <Box style={classes.homeStyle}>
